@@ -7,6 +7,7 @@ function createCard(props) {
   return (
     <Card
       key={props.id}
+      id={props.id}
       name={props.name}
       img={props.imgURL}
       tel={props.phone}

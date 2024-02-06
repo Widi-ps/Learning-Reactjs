@@ -11,6 +11,8 @@ function App() {
     setTime(newTime);
   }
 
+  setInterval(updateTime, 1000);
+
   return (
     <div className="container">
       <h1>{time}</h1>

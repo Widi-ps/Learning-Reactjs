@@ -3,3 +3,4 @@ const animals = [
   { name: "dog", sound: "woof" }
 ];
 
+export default animals;

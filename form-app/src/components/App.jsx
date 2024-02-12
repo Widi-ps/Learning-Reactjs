@@ -8,7 +8,6 @@ function App() {
 
   function handleClick(event) {
     setHeadingText(name);
-
     event.preventDefault();
   }
 
@@ -27,14 +26,15 @@ function App() {
   return (
     <div className="container">
       <h1>{headingText}</h1>
-      <form>
-        <input onSubmit={handleClick}
+      <form onSubmit={handleClick}>
+        <input
           onChange={handleChange}
           type="text"
           placeholder="What's your name?"
           value={name}
         ></input>
         <button
+          // onClick={handleClick}
           type="submit"
           style={{
             backgroundColor: isMouseOver ? "black" : "white",

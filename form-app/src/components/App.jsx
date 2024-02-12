@@ -2,48 +2,52 @@ import React from "react";
 import { useState } from "react";
 
 function App() {
-  const [name, setName] = useState("");
-  const [headingText, setHeadingText] = useState("Hello");
-  const [isMouseOver, setMouseOver] = useState(false);
+  const [fname, setFname] = useState("");
+  const [lname, setLname] = useState("");
+  // const [isMouseOver, setMouseOver] = useState(false);
 
-  function handleClick(event) {
-    setHeadingText(name);
-    event.preventDefault();
+  // function handleClick(event) {
+  //   setHeadingText(name);
+  //   event.preventDefault();
+  // }
+
+  // function handleMouseOver() {
+  //   setMouseOver(true);
+  // }
+
+  // function handleMouseOut() {
+  //   setMouseOver(false);
+  // }
+
+  function handleFname(event) {
+    const firstname = event.target.value;
+    setFname(firstname);
   }
 
-  function handleMouseOver() {
-    setMouseOver(true);
-  }
-
-  function handleMouseOut() {
-    setMouseOver(false);
-  }
-
-  function handleChange(event) {
-    setName(event.target.value);
+  function handleLname(event) {
+    const lname = event.target.value;
+    setLname(lname);
   }
 
   return (
     <div className="container">
-      <h1>{headingText}</h1>
-      <form onSubmit={handleClick}>
+      <h1>
+        Hello {fname} {lname}
+      </h1>
+      <form>
         <input
-          onChange={handleChange}
-          type="text"
-          placeholder="What's your name?"
-          value={name}
-        ></input>
-        <button
-          // onClick={handleClick}
-          type="submit"
-          style={{
-            backgroundColor: isMouseOver ? "black" : "white",
-          }}
-          onMouseOver={handleMouseOver}
-          onMouseOut={handleMouseOut}
-        >
-          Submit
-        </button>
+          onChange={handleFname}
+          name="fName"
+          placeholder="First Name"
+          value={fname}
+        />
+        <input
+          onChange={handleLname}
+          name="lName"
+          placeholder="Last Name"
+          value={lname}
+        />
+        <button>Submit</button>
       </form>
     </div>
   );

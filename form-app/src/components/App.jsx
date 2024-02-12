@@ -25,22 +25,24 @@ function App() {
   return (
     <div className="container">
       <h1>{headingText}</h1>
-      <input
-        onChange={handleChange}
-        type="text"
-        placeholder="What's your name?"
-        value={name}
-      ></input>
-      <button
-        style={{
-          backgroundColor: isMouseOver ? "black" : "white",
-        }}
-        onClick={handleClick}
-        onMouseOver={handleMouseOver}
-        onMouseOut={handleMouseOut}
-      >
-        Submit
-      </button>
+      <form>
+        <input onSubmit={handleClick}
+          onChange={handleChange}
+          type="text"
+          placeholder="What's your name?"
+          value={name}
+        ></input>
+        <button
+          type="submit"
+          style={{
+            backgroundColor: isMouseOver ? "black" : "white",
+          }}
+          onMouseOver={handleMouseOver}
+          onMouseOut={handleMouseOut}
+        >
+          Submit
+        </button>
+      </form>
     </div>
   );
 }

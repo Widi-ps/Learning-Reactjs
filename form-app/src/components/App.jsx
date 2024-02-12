@@ -6,8 +6,10 @@ function App() {
   const [headingText, setHeadingText] = useState("Hello");
   const [isMouseOver, setMouseOver] = useState(false);
 
-  function handleClick() {
+  function handleClick(event) {
     setHeadingText(name);
+
+    event.preventDefault();
   }
 
   function handleMouseOver() {

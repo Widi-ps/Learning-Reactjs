@@ -2,8 +2,11 @@ import React from "react";
 import { useState } from "react";
 
 function App() {
-  const [fname, setFname] = useState("");
-  const [lname, setLname] = useState("");
+  const [fullName, setFullName] = useState({
+    fName: "",
+    lName: "",
+  });
+
   // const [isMouseOver, setMouseOver] = useState(false);
 
   // function handleClick(event) {
@@ -19,33 +22,42 @@ function App() {
   //   setMouseOver(false);
   // }
 
-  function handleFname(event) {
-    const firstname = event.target.value;
-    setFname(firstname);
-  }
+  function handleChange(event) {
+    const newValue = event.target.value;
+    const inputName = event.target.name;
 
-  function handleLname(event) {
-    const lname = event.target.value;
-    setLname(lname);
+    setFullName((preValue) => {
+      if (inputName === "fName") {
+        return {
+          fName: newValue,
+          lName: preValue.lName,
+        };
+      } else if (inputName === "lName") {
+        return {
+          fName: preValue.fName,
+          lName: newValue,
+        };
+      }
+    });
   }
 
   return (
     <div className="container">
       <h1>
-        Hello {fname} {lname}
+        Hello {fullName.fName} {fullName.lName}
       </h1>
       <form>
         <input
-          onChange={handleFname}
+          onChange={handleChange}
           name="fName"
           placeholder="First Name"
-          value={fname}
+          value={fullName.fname}
         />
         <input
-          onChange={handleLname}
+          onChange={handleChange}
           name="lName"
           placeholder="Last Name"
-          value={lname}
+          value={fullName.lname}
         />
         <button>Submit</button>
       </form>

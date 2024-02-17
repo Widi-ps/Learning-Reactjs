@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 
 function List(props) {
+  const [isCompleted, setIsCompleted] = useState(false);
+
+  function handleClick() {
+    setIsCompleted(!isCompleted);
+  }
   return (
-    <li>{props.items}</li>)
+    <div onClick={handleClick}>
+      <li style={{ textDecoration: isCompleted ? "line-through" : "none" }}>
+        {props.items}
+      </li>
+    </div>
+  );
 }
 
 export default List;
